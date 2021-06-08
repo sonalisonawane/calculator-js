@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="header">
+            <h1>calc</h1>
+
+            <div class="theme-changer">
+                <span>THEME</span>
+
+                <div class="outer">
+
+                    <input type=radio value="1" name="toggle" class="inner" checked>
+
+                    <input type=radio value="2" name="toggle" class="inner">
+                    <input type=radio value="3" name="toggle" class="inner">
+                </div>
+
+
+            </div>
+        </div>
+        <input type="text" class="result-box"></input>
+        <div class="calculator-input">
+            <input class="btn" type="button" value="7">
+            <input class="btn" type="button" value="8">
+            <input class="btn" type="button" value="9">
+            <input class="btn" type="button" value="DEL">
+            <input class="btn" type="button" value="4">
+            <input class="btn" type="button" value="5">
+            <input class="btn" type="button" value="6">
+            <input class="btn" type="button" value="+">
+            <input class="btn" type="button" value="1">
+            <input class="btn" type="button" value="2">
+            <input class="btn" type="button" value="3">
+            <input class="btn" type="button" value="-">
+            <input class="btn" type="button" value=".">
+            <input class="btn" type="button" value="0">
+            <input class="btn" type="button" value="/">
+            <input class="btn" type="button" value="x">
+            <input class="btn" type="button" value="RESET">
+            <input class="btn" type="button" value="=">
+
+        </div>
+    </div>
+
+
+    <div class="attribution">
+
+        Coded by <a href="#">Sonali</a>.
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
