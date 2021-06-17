@@ -121,6 +121,10 @@ input[type=button] {
     color: var(--theme1-text);
 }
 
+input[type=button]:hover {
+    color: aquamarine;
+}
+
 input[type=button]:nth-of-type(17),
 input[type=button]:nth-of-type(18) {
     width: 10rem;
