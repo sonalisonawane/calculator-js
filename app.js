@@ -1,37 +1,43 @@
-** *
 let inputBtns = document.querySelectorAll(".btn")
 let resultBox = document.querySelector(".result-box")
-let screenValue = "" //value inside result box
 
-inputBtns.forEach(element => {
-    element.addEventListener("click", function(e) {
+inputBtns.forEach(button => {
+    button.addEventListener("click", function(e) {
         let buttonText = e.target.value;
         if (buttonText == "x") {
             buttonText = "*";
-            screenValue += buttonText;
-            resultBox.value = screenValue;
+            resultBox.value += buttonText;
         } else if (buttonText == "RESET") {
-            screenValue = ""
-            resultBox.value = screenValue;
+            resultBox.value = "";
         } else if (buttonText == "DEL") {
-            // screenValue -= 1;
             resultBox.value = resultBox.value.substring(0, resultBox.value.length - 1);
         } else if (buttonText == "=") {
-            resultBox.value = eval(screenValue)
+
+            if (resultBox.value == "") {
+                resultBox.value = ""
+            } else {
+                resultBox.value = eval(resultBox.value)
+            }
         } else {
-            screenValue += buttonText;
-            resultBox.value = screenValue;
-
+            resultBox.value += buttonText;
         }
-    })
-    window.addEventListener("keydown", function(e) {
-        newArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-        if (e.key == "=" || "ENTER") {
-            resultBox.value = eval(screenValue)
-        } else if (e.key == "Backspace") {
-            resultBox.value = resultBox.value.substring(0, resultBox.value.length - 1);
-        }
-
-
     })
 });
+
+const themeSwitcher = document.querySelectorAll(".inner");
+const defaultTheme = localStorage.getItem("theme") || "theme-1"
+setTheme(defaultTheme);
+
+
+themeSwitcher.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        setTheme(e.target.value);
+    });
+});
+
+function setTheme(theme) {
+    theme = theme || "theme-1";
+    document.documentElement.className = theme;
+    localStorage.setItem("theme", theme);
+    themeSwitcher.value = theme;
+}
