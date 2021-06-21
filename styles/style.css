@@ -7,45 +7,52 @@
 :root {
     --font-size-numbers: 32px;
     /* theme 1 color */
-    --theme1-mainbg: hsl(222, 26%, 31%);
-    --theme1-toggle-keypad-bg: hsl(223, 31%, 20%);
-    --theme1-screen-bg: hsl(224, 36%, 15%);
-    --theme1-del-bg: hsl(225, 21%, 49%);
-    --theme1-del-shadow: hsl(224, 28%, 35%);
-    --theme1-key-bg: hsl(30, 25%, 89%);
-    --theme1-key-shadow: hsl(28, 16%, 65%);
-    --theme1-toggle-n-equal: hsl(6, 63%, 50%);
-    --theme1-equal-shadow: hsl(6, 70%, 34%);
-    --theme1-text: hsl(221, 14%, 31%);
-    --theme1-white: hsl(0, 0, 100%);
-    /* theme 2 color */
-    --theme2-mainbg: hsl(0, 0%, 90%);
-    --theme2-toggle-keypad-bg: hsl(0, 5%, 81%);
-    --theme2-screen-bg: hsl(0, 0%, 93%);
-    --theme2-del-bg: hsl(185, 42%, 37%);
-    --theme2-del-shadow: hsl(185, 58%, 25%);
-    --theme2-key-bg: hsl(45, 7%, 89%);
-    --theme2-key-shadow: hsl(35, 11%, 61%);
-    --theme2-toggle-n-equal: hsl(25, 98%, 40%);
-    --theme2-equal-shadow: hsl(25, 99%, 27%);
-    --theme2-text: hsl(60, 10%, 19%);
-    --theme2-white: hsl(0, 0, 100%);
-    /* theme 3 color */
-    --theme3-mainbg: hsl(268, 75%, 9%);
-    --theme3-toggle-keypad-screen-bg: hsl(268, 71%, 12%);
-    --theme3-del-bg: hsl(281, 89%, 26%);
-    --theme3-del-shadow: hsl(285, 91%, 52%);
-    --theme3-key-bg: hsl(268, 47%, 21%);
-    --theme3-key-shadow: hsl(290, 70%, 36%);
-    --theme3-toggle-n-equal: hsl(176, 100%, 44%);
-    --theme3-equal-shadow: hsl(177, 92%, 70%);
-    --theme3-text: hsl(52, 100%, 62%);
-    --theme3-white: hsl(0, 0, 100%);
-    --theme3-dark-blue: hsl(198, 20%, 13%);
+}
+
+.theme-1 {
+    --mainbg: hsl(222, 26%, 31%);
+    --toggle-keypad-bg: hsl(223, 31%, 20%);
+    --screen-bg: hsl(224, 36%, 15%);
+    --del-bg: hsl(225, 21%, 49%);
+    --del-shadow: hsl(224, 28%, 35%);
+    --key-bg: hsl(30, 25%, 89%);
+    --key-shadow: hsl(28, 16%, 65%);
+    --toggle-n-equal: hsl(6, 63%, 50%);
+    --equal-shadow: hsl(6, 70%, 34%);
+    --text: hsl(221, 14%, 31%);
+    --white: hsl(0, 0, 100%);
+}
+
+.theme-2 {
+    --mainbg: hsl(0, 0%, 90%);
+    --toggle-keypad-bg: hsl(0, 5%, 81%);
+    --screen-bg: hsl(0, 0%, 93%);
+    --del-bg: hsl(185, 42%, 37%);
+    --del-shadow: hsl(185, 58%, 25%);
+    --key-bg: hsl(45, 7%, 89%);
+    --key-shadow: hsl(35, 11%, 61%);
+    --toggle-n-equal: hsl(25, 98%, 40%);
+    --equal-shadow: hsl(25, 99%, 27%);
+    --text: hsl(60, 10%, 19%);
+    --white: hsl(0, 0, 100%);
+}
+
+.theme-3 {
+    --mainbg: hsl(268, 75%, 9%);
+    --toggle-keypad-screen-bg: hsl(268, 71%, 12%);
+    --del-bg: hsl(281, 89%, 26%);
+    --del-shadow: hsl(285, 91%, 52%);
+    --key-bg: hsl(268, 47%, 21%);
+    --key-shadow: hsl(290, 70%, 36%);
+    --toggle-n-equal: hsl(176, 100%, 44%);
+    --equal-shadow: hsl(177, 92%, 70%);
+    --text: hsl(52, 100%, 62%);
+    --white: hsl(0, 0, 100%);
+    --dark-blue: hsl(198, 20%, 13%);
 }
 
 body {
-    background: var(--theme1-mainbg);
+    background: var(--mainbg);
     color: white;
 }
 
@@ -64,21 +71,24 @@ div.outer {
     border-radius: 30px;
     height: 25px;
     width: 48px;
-    background: var(--theme1-toggle-keypad-bg);
+    background: var(-toggle-keypad-bg);
     display: flex;
     align-items: center;
+    padding: 5px;
 }
 
 input.inner {
-    width: 15px;
+    width: 21px;
     height: 15px;
-    margin: 4px;
     border-radius: 50%;
-    background: var(--theme1-toggle-n-equal);
+    border: none;
+    background: var(--toggle-n-equal);
+    outline: none;
 }
 
-input.inner:checked {
-    background: var(--theme1-toggle-n-equal);
+input.inner.radio2,
+input.inner.radio3 {
+    opacity: 0.1;
 }
 
 input.result-box {
@@ -86,18 +96,18 @@ input.result-box {
     height: 5rem;
     margin-top: 20px;
     outline: none;
-    background: var(--theme1-screen-bg);
+    background: var(--screen-bg);
     border-radius: 10px;
     border: none;
     font-size: var(--font-size-numbers);
     text-align: right;
-    color: var(--theme1-white);
+    color: var(--white);
 }
 
 div.calculator-input {
     width: 100%;
     height: 20rem;
-    background: var(--theme1-toggle-keypad-bg);
+    background: var(--toggle-keypad-bg);
     margin-top: 20px;
     padding: 25px;
     border-radius: 10px;
@@ -113,12 +123,12 @@ input[type=button] {
     width: 4.3rem;
     text-align: center;
     border-radius: 8px;
-    background: var(--theme1-key-bg);
-    box-shadow: 1px 3px 1px var(--theme1-key-shadow);
+    background: var(--key-bg);
+    box-shadow: 1px 3px 1px var(--key-shadow);
     border: none;
     outline: none;
     font-size: 20px;
-    color: var(--theme1-text);
+    color: var(--text);
 }
 
 input[type=button]:hover {
@@ -131,18 +141,18 @@ input[type=button]:nth-of-type(18) {
 }
 
 input[type=button]:nth-of-type(18) {
-    background: var(--theme1-toggle-n-equal);
-    box-shadow: 1px 3px 1px var(--theme1-equal-shadow);
-    color: var(--theme1-white);
+    background: var(--toggle-n-equal);
+    box-shadow: 1px 3px 1px var(--equal-shadow);
+    color: var(--white);
     font-size: 15px;
 }
 
 input[type=button]:nth-of-type(4),
 input[type=button]:nth-of-type(17) {
     font-size: 15px;
-    background: var(--theme1-del-bg);
-    box-shadow: 1px 3px 1px var(--theme1-del-shadow);
-    color: var(--theme1-white);
+    background: var(--del-bg);
+    box-shadow: 1px 3px 1px var(--del-shadow);
+    color: var(--white);
     font-weight: bold;
 }
 
@@ -151,5 +161,5 @@ input[type=button]:nth-of-type(18) {
 }
 
 label {
-    margin-left: 68px;
+    margin-left: 6px;
 }
